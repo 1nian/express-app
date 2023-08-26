@@ -6,5 +6,6 @@
     "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": false
   }
 }

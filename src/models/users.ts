@@ -16,4 +16,4 @@ const User = new mongoose.Schema<User>({
 
 User.index({ name: 1 }, { unique: true });
 
-export const userModel = mongoose.model("users", User);
+export const userModel = mongoose.model("user", User);
