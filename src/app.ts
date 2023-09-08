@@ -1,9 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 
-import user from "./controller/user";
-import chapter from "./controller/chapter";
-import novel from "./controller/novel";
+import user from "./router/user";
+import chapter from "./router/chapter";
+import novel from "./router/novel";
 
 const app = express();
 
