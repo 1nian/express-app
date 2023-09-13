@@ -7,7 +7,15 @@ import novel from "./router/novel";
 
 const app = express();
 
-app.use(express.json());
+app.all("*", function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    res.header("Access-Control-Allow-Methods", "*");
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
+
+app.use(express.json({ limit: "100mb" }));
 
 // 地址+端口号+库名称
 const url = "mongodb://127.0.0.1:27017/library_database";

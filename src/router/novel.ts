@@ -25,4 +25,17 @@ router.get("/find", async (req: Request, res: Response) => {
     }
 });
 
+// 根据文章名称获取id
+router.get("/find/:name", async (req: Request, res: Response) => {
+    try {
+        let name = req.params.name;
+
+        let result = await novelModel.findOne({ name }).select("name");
+
+        res.status(201).send(result);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
+
 export default router;
