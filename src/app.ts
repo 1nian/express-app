@@ -1,11 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
+import path from "path";
 
 import user from "./router/user";
 import chapter from "./router/chapter";
 import novel from "./router/novel";
+import upload from "./router/upload";
 
 const app = express();
+
+app.use(express.static("uploads"));
 
 app.all("*", function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -29,6 +33,7 @@ mongoose.connection.once("open", () => {
 app.use("/user", user);
 app.use("/novel", novel);
 app.use("/chapter", chapter);
+app.use("/upload", upload);
 
 const PORT = process.env.PORT || 3000;
 
