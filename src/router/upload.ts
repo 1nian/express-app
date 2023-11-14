@@ -24,9 +24,20 @@ router.post(
         const fileUrl = `${req.protocol}://${req.get("host")}/${
             req?.file?.filename
         }`;
+
+        if (!req?.file?.filename) {
+            res.status(400).send({
+                code: 400,
+                message: "文件上传失败！",
+                data: null,
+            });
+            return;
+        }
+
         res.status(201).send({
             message: "文件上传成功！",
             data: fileUrl,
+            code: 201,
         });
     }
 );
