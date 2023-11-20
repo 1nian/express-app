@@ -33,7 +33,7 @@ mongoose.connection.once("open", () => {
 app.use("/user", user);
 app.use("/novel", novel);
 app.use("/chapter", chapter);
-app.use("/upload", upload);
+app.use("/", upload);
 
 const PORT = process.env.PORT || 3000;
 
